@@ -1,3 +1,3 @@
 # change-my-view
 
-Timmy made changes to the readme
+Timmy Trapaidze, Group 44, Change My View
