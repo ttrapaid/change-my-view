@@ -14,13 +14,13 @@ class DashboardActivity : AppCompatActivity() {
 
         val buttonMatch = findViewById<Button>(R.id.matchButton)
         buttonMatch.setOnClickListener {
-            val intent = Intent(this@DashboardActivity, Matches::class.java)
+            val intent = Intent(this@DashboardActivity, MatchesActivity::class.java)
             startActivity(intent)
         }
 
         val buttonTopic = findViewById<Button>(R.id.topicButton)
         buttonTopic.setOnClickListener {
-            val intent = Intent(this@DashboardActivity, Topics::class.java)
+            val intent = Intent(this@DashboardActivity, TopicsActivity::class.java)
             startActivity(intent)
         }
 
