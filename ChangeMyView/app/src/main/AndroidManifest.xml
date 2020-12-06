@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MatchesActivity"></activity>
         <activity android:name=".TopicsActivity" />
+        <activity android:name=".TopicPositionActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

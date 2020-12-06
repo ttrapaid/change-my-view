@@ -21,7 +21,7 @@
         android:id="@+id/matchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/buttonTopics"
+        android:text="@string/buttonMatches"
         app:layout_constraintEnd_toStartOf="@+id/topicButton"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="96dp"
-        android:text="@string/buttonMatches"
+        android:text="@string/buttonTopics"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="331dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

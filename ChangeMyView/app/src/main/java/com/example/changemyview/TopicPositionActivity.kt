@@ -1,0 +1,57 @@
+package com.example.changemyview
+
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.*
+import androidx.fragment.app.FragmentActivity
+import android.widget.AdapterView.OnItemClickListener
+import android.widget.ArrayAdapter
+import android.widget.ListView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+
+class TopicPositionActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_topicposition)
+
+        //Set the Topic title up
+        val intent = getIntent()
+        val extras = intent.extras
+        var title = "Default Topic Title"
+        if (extras != null){
+            title = extras[TopicsActivity.TITLE] as String
+        }
+        val titleView = findViewById<TextView>(R.id.position_title)
+        titleView.text = title
+
+        // Record which stance this user has on this topic
+        val forView = findViewById<TextView>(R.id.position_for)
+        forView.setOnClickListener(
+            View.OnClickListener { v: View ->
+                Toast.makeText(
+                    applicationContext,
+                    "You indicated you are FOR this topic",
+                    Toast.LENGTH_LONG
+                ).show()
+                finish()
+            }
+        )
+
+        val againstView = findViewById<TextView>(R.id.position_against)
+        againstView.setOnClickListener(
+            View.OnClickListener { v: View ->
+                Toast.makeText(
+                    applicationContext,
+                    "You indicated you are AGAINST this topic",
+                    Toast.LENGTH_LONG
+                ).show()
+                finish()
+            }
+        )
+    }
+}

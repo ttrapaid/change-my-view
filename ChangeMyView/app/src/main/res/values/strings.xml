@@ -3,4 +3,19 @@
     <string name="mainTitle">Main Menu</string>
     <string name="buttonTopics">Topics</string>
     <string name="buttonMatches">Matches</string>
+    <string name="positionFor">For</string>
+    <string name="positionAgainst">Against</string>
+
+    <string-array name="topics_list">
+        <item>Anti vaxxers being forced to vaccinate their kids</item>
+        <item>Abortions being legal</item>
+        <item>Allowing twitter to fact check government officials</item>
+        <item>Legalization of marijuana</item>
+        <item>Free healthcare</item>
+        <item>Euthanization of terminally ill patients</item>
+        <item>Death Penalty</item>
+        <item>Minimum drinking age of 18</item>
+        <item>Every Citizen should get a free pony</item>
+    </string-array>
+
 </resources>
