@@ -11,6 +11,11 @@
     <string name="topic_to_menu">Return to main menu</string>
     <string name="topic_to_matches">Go to matches</string>
     <string name="help">Help</string>
+    <string name="help_menu1">   In this application, you may select a controversial topic to be for or against. As soon as someone else marks an opposing viewpoint on your topic
+        their email will appear in your matches. If you do not see any matches, then come visit the app the next day to check if you have been paired.</string>
+    <string name="help_menu2">   This is a place to have your viewpoints on life challenged in a respectful way. If you are harassed by another user,
+        please report them by using our report feature. We will make sure to take appropriate action.</string>
+    <string name="help_menu3">   Have fun and keep an open mind!</string>
 
     <string-array name="topics_list">
         <item>Anti vaxxers being forced to vaccinate their kids</item>

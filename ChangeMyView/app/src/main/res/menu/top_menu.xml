@@ -1,8 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
+    // item for help menu
     <item
         android:id="@+id/help"
         android:title="@string/help"/>
+    // item for reporting users
     <item
         android:id="@+id/report"
         android:title="@string/report_user"/>
