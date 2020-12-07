@@ -10,6 +10,7 @@
     <string name="topic_intro">Tap a topic to select or change your position:</string>
     <string name="topic_to_menu">Return to main menu</string>
     <string name="topic_to_matches">Go to matches</string>
+    <string name="help">Help</string>
 
     <string-array name="topics_list">
         <item>Anti vaxxers being forced to vaccinate their kids</item>
