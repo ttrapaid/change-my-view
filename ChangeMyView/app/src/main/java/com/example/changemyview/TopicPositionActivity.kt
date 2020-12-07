@@ -37,7 +37,7 @@ class TopicPositionActivity : AppCompatActivity() {
         //var userID: String
         if (extras != null){
             title = extras[TopicsActivity.TITLE] as String
-            //userID = extras[MainActivity.USER_ID] as String
+
         }
         
         val titleView = findViewById<TextView>(R.id.position_title)
@@ -52,8 +52,7 @@ class TopicPositionActivity : AppCompatActivity() {
                     "You indicated you are FOR this topic",
                     Toast.LENGTH_LONG
                 ).show()
-                //TODO - update database to reflect that this user is for this topic
-                //database.reference.child("Users").child(currentUser.UID).child("Topics").child(topicName).setValue(stance)
+                updatePosition(title, FOR)
                 finish()
             }
         )
@@ -66,9 +65,19 @@ class TopicPositionActivity : AppCompatActivity() {
                     "You indicated you are AGAINST this topic",
                     Toast.LENGTH_LONG
                 ).show()
-                //TODO - update database to reflect this user is against this topic
+                updatePosition(title, AGAINST)
                 finish()
             }
         )
+    }
+
+    fun updatePosition(topic: String, position: String){
+        var currentUser = mAuth!!.currentUser!!
+        mDatabaseReference!!.child(currentUser.uid).child("Topics").child(topic).setValue(position)
+    }
+
+    companion object{
+        val FOR = "FOR"
+        val AGAINST = "AGAINST"
     }
 }

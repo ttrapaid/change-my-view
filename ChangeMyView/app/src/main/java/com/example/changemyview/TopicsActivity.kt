@@ -12,21 +12,39 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class TopicsActivity : AppCompatActivity() {
+    private lateinit var mArrayAdapter: ArrayAdapter<String>
+    private lateinit var listView: ListView
+
+    private lateinit var mDatabaseReference: DatabaseReference
+    private lateinit var mDatabase: FirebaseDatabase
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.i(TAG, "In TopicsActivity onCreate()")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_topics)
 
-        // set up ListView
-        val listView = findViewById<ListView>(R.id.topics_listview)
+        mDatabase = FirebaseDatabase.getInstance()
+        mDatabaseReference = mDatabase!!.reference.child("Users")
+        mAuth = FirebaseAuth.getInstance()
 
-        listView.adapter = ArrayAdapter(
+        // set up ListView
+        listView = findViewById<ListView>(R.id.topics_listview)
+
+        mArrayAdapter = ArrayAdapter(
             this, R.layout.topic_item,
-            resources.getStringArray(R.array.topics_list)
+            MatchesActivity.TOPIC_LIST //resources.getStringArray(R.array.topics_list)
         )
+        listView.adapter = mArrayAdapter
+
+        setTopicColors()
 
         // Enable filtering when the user types in the virtual keyboard
         listView.isTextFilterEnabled = true
@@ -55,6 +73,19 @@ class TopicsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+
+    // TODO - set the background color of each topic according to the user's current position
+    fun setTopicColors(){
+        /*
+        var currentUser = mAuth!!.currentUser!!
+        var length = mArrayAdapter.count
+        for (i in 0 until length) {
+            val topicView = mArrayAdapter.getView(i, null, listView) as TextView
+            val topic = topicView.text.toString()
+            //mDatabaseReference!!.child(currentUser.uid).child("Topics").child(topic).setValue(position
+        }
+        */
     }
 
     companion object {
