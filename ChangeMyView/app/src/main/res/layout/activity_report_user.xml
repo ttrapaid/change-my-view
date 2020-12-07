@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ReportUserActivity">
 
+    // Title of the activity
     <TextView
         android:id="@+id/Report"
         android:layout_width="300dp"
@@ -17,6 +18,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    // Text field to enter the email of the person you would like ot report
     <EditText
         android:id="@+id/userEmail"
         android:layout_width="300dp"
@@ -28,6 +30,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Report" />
 
+    // Text field to enter the reason for reporting this user
     <EditText
         android:id="@+id/Reason"
         android:layout_width="300dp"
@@ -39,6 +42,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@id/Submit" />
 
+    // Button for submitting the report
     <Button
         android:id="@+id/Submit"
         android:layout_height="wrap_content"

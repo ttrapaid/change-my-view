@@ -17,12 +17,14 @@ class DashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
+        // set up "button" for matches. Start MatchesActivity onClick
         val buttonMatch = findViewById<TextView>(R.id.matchSelect)
         buttonMatch.setOnClickListener {
             val intent = Intent(this@DashboardActivity, MatchesActivity::class.java)
             startActivity(intent)
         }
 
+        // set up "button" for topics. Start TopicsActivity onClick
         val buttonTopic = findViewById<TextView>(R.id.topicSelect)
         buttonTopic.setOnClickListener {
             val intent = Intent(this@DashboardActivity, TopicsActivity::class.java)
@@ -41,16 +43,15 @@ class DashboardActivity : AppCompatActivity() {
     // Process clicks on Options Menu items
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            // when click on report, start the report activity
             R.id.report -> {
                 val intent = Intent(this@DashboardActivity, ReportUserActivity::class.java)
                 startActivity(intent)
                 true
+            // when click on help, display AlertDialog with tips on app usage
             } R.id.help -> {
                 AlertDialog.Builder(this)
-                    .setMessage("   In this application, you may select a controversial topic to be for or against. As soon as someone else marks an opposing viewpoint on your topic, " +
-                            "their email will appear in your matches. If you do not see any matches, then come visit the app the next day to check if you have been paired. \n\n   This is a " +
-                            "place to have your viewpoints on life challenged in a respectful way. If you are harassed by another user, please report them by using our report feature. " +
-                            "We will make sure to take appropriate action. \n\n   Have fun and keep an open mind!")
+                    .setMessage(getString(R.string.help_menu1) + "\n\n" + getString(R.string.help_menu2) + "\n\n" + getString(R.string.help_menu3))
                     .setCancelable(true).create().show()
                 true
             }
