@@ -25,24 +25,24 @@ class TopicPositionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_topicposition)
 
+        // get references to database
         mDatabase = FirebaseDatabase.getInstance()
         mDatabaseReference = mDatabase!!.reference.child("Users")
         mAuth = FirebaseAuth.getInstance()
 
-        //Set the Topic title up
+        //Set the Topic title up:
+        // Get title from intent's extra
         val intent = getIntent()
         val extras = intent.extras
         var title = "Default Topic Title"
-        //var userID: String
         if (extras != null){
             title = extras[TopicsActivity.TITLE] as String
-
         }
-        
+        // set title of the topic for the textView
         val titleView = findViewById<TextView>(R.id.position_title)
         titleView.text = title
 
-        // Record which stance this user has on this topic
+        // Set up Listener for when the user clicks on FOR
         val forView = findViewById<TextView>(R.id.position_for)
         forView.setOnClickListener(
             View.OnClickListener { v: View ->
@@ -56,6 +56,7 @@ class TopicPositionActivity : AppCompatActivity() {
             }
         )
 
+        //set up listener for AGAINST option
         val againstView = findViewById<TextView>(R.id.position_against)
         againstView.setOnClickListener(
             View.OnClickListener { v: View ->
@@ -70,35 +71,15 @@ class TopicPositionActivity : AppCompatActivity() {
         )
     }
 
+    // Updates the database to reflect this users stance on the topic,
+    // as well as adds this user to this topic's list of for/against users
     fun updatePosition(topic: String, position: String){
+        //get the current user
         var currentUser = mAuth!!.currentUser!!
+        //update this users stance
         mDatabaseReference!!.child(currentUser.uid).child("Topics").child(topic).setValue(position)
-        /*
-        var userId = firebase.auth().currentUser.uid;
-        return firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
-        var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
-        //...
-        });
-
-        var mListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                var mlist = dataSnapshot.child(topic).child(position).getValue() //as Array<String>
-
-                if (mlist != null){
-                    (mlist as ArrayList<String>).add(currentUser.uid)
-                } else {
-                    mlist = arrayListOf<String>(currentUser.uid)
-                }
-            }
-            override fun onCancelled(databaseError: DatabaseError) {
-                println("loadPost:onCancelled ${databaseError.toException()}")
-            }
-        }
-        mDatabase!!.reference.child("Topics").addListenerForSingleValueEvent(mListener)
-        //mDatabaseReference!!.child("Topics").child(topic).child(position).setValue
-        */
+        //add this user to this topic's list of for/against users
         mDatabase!!.reference.child("Topics").child(topic).child(position).child(currentUser.uid).setValue(position)
-        mDatabaseReference!!.child(currentUser.uid).child("Topics").child(topic).setValue(position)
     }
 
     companion object{
