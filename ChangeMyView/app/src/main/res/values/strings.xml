@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ChangeMyView</string>
-    <string name="mainTitle">Main Menu</string>
+    <string name="mainTitle">Main Menu: Go to your matches, or see a list of topics.</string>
     <string name="buttonTopics">Topics</string>
     <string name="buttonMatches">Matches</string>
     <string name="positionFor">For</string>

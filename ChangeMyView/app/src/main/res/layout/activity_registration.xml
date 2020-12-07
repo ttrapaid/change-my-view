@@ -1,77 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationActivity">
+    tools:context=".MainActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".RegistrationActivity">
 
 
-    <TextView
-        android:id="@+id/registerText"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Register New User"
-        android:layout_marginTop="100dp"
-        app:layout_constraintBottom_toTopOf="@id/newUsername"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/registerText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Register New User"
+            android:layout_marginTop="100dp"
+            app:layout_constraintBottom_toTopOf="@id/newUsername"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/newUsername"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Enter New Username"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toTopOf="@id/newPassword"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/registerText" />
+        <EditText
+            android:id="@+id/newUsername"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter New Username"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toTopOf="@id/newPassword"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerText" />
 
-    <EditText
-        android:id="@+id/newPassword"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Enter Your Password"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/newUsername"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/newUsername" />
+        <EditText
+            android:id="@+id/newPassword"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter Your Password"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/newUsername"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/newUsername" />
 
-    <EditText
-        android:id="@+id/confirmPassword"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Confirm Password"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/newPassword"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/newEmail" />
+        <EditText
+            android:id="@+id/confirmPassword"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/newPassword"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/newEmail" />
 
-    <EditText
-        android:id="@+id/newEmail"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Enter Your Email"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/confirmPassword"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/registerUser" />
+        <EditText
+            android:id="@+id/newEmail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter Your Email"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/confirmPassword"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/registerUser" />
 
-    <Button
-        android:id="@+id/registerUser"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:layout_width="300dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/newEmail" />
+        <Button
+            android:id="@+id/registerUser"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:layout_width="300dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newEmail" />
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
