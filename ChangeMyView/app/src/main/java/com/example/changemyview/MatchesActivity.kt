@@ -25,6 +25,7 @@ class MatchesActivity : AppCompatActivity() {
         matchListView.adapter = mAdapter
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Users")
+        mAuth = FirebaseAuth.getInstance()
         var currentUser = mAuth!!.currentUser!!
         var topicDict = HashMap<String, String>()
 

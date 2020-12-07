@@ -13,8 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
 class TopicPositionActivity : AppCompatActivity() {
 
@@ -73,6 +72,32 @@ class TopicPositionActivity : AppCompatActivity() {
 
     fun updatePosition(topic: String, position: String){
         var currentUser = mAuth!!.currentUser!!
+        mDatabaseReference!!.child(currentUser.uid).child("Topics").child(topic).setValue(position)
+        /*
+        var userId = firebase.auth().currentUser.uid;
+        return firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
+        var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+        //...
+        });
+
+        var mListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                var mlist = dataSnapshot.child(topic).child(position).getValue() //as Array<String>
+
+                if (mlist != null){
+                    (mlist as ArrayList<String>).add(currentUser.uid)
+                } else {
+                    mlist = arrayListOf<String>(currentUser.uid)
+                }
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+                println("loadPost:onCancelled ${databaseError.toException()}")
+            }
+        }
+        mDatabase!!.reference.child("Topics").addListenerForSingleValueEvent(mListener)
+        //mDatabaseReference!!.child("Topics").child(topic).child(position).setValue
+        */
+        mDatabase!!.reference.child("Topics").child(topic).child(position).child(currentUser.uid).setValue(position)
         mDatabaseReference!!.child(currentUser.uid).child("Topics").child(topic).setValue(position)
     }
 

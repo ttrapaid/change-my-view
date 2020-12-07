@@ -83,7 +83,7 @@ class TopicsActivity : AppCompatActivity() {
         for (i in 0 until length) {
             val topicView = mArrayAdapter.getView(i, null, listView) as TextView
             val topic = topicView.text.toString()
-            //mDatabaseReference!!.child(currentUser.uid).child("Topics").child(topic).setValue(position
+            //mDatabaseReference!!.child(currentUser.uid).child("Topics").child(topic)
         }
         */
     }
