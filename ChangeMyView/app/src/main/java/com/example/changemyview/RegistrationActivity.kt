@@ -10,6 +10,8 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class RegistrationActivity : AppCompatActivity() {
     private var emailTV: EditText? = null
@@ -21,12 +23,14 @@ class RegistrationActivity : AppCompatActivity() {
 
 
     private var mAuth: FirebaseAuth? = null
+    private var mDatabaseReference: DatabaseReference? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
 
-        mAuth       = FirebaseAuth.getInstance()
-
+        mAuth               = FirebaseAuth.getInstance()
+        mDatabaseReference  = FirebaseDatabase.getInstance().reference.child("Users")
 
         emailTV       = findViewById(R.id.newEmail)
         usernameTV    = findViewById(R.id.newUsername)
@@ -57,12 +61,26 @@ class RegistrationActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(applicationContext, "Registration successful!", Toast.LENGTH_LONG).show()
+
+                    val currentUser = mAuth!!.currentUser!!
+                    mDatabaseReference!!.child(currentUser.uid)
+                    val user = User(currentUser.uid, currentUser.email)
+
+                    for (topic in TOPIC_LIST)
+                        mDatabaseReference!!.child(currentUser.uid).child("Topics").child(topic).setValue("U")
+
+
                     val intent = Intent(this@RegistrationActivity, MainActivity::class.java)
                     startActivity(intent)
                 } else {
                     Toast.makeText(applicationContext, "Registration failed! Please try again later", Toast.LENGTH_LONG).show()
                 }
             }
+    }
+
+
+    companion object {
+        val TOPIC_LIST = listOf("Legalize Marijuana", "Mandatory Vaccinations", "Lower the Drinking Age to 18", "Ponies4All", "Free Healthcare", "Euthanization", "Death Penalty")
     }
 
 }

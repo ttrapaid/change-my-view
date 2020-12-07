@@ -6,4 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".MatchesActivity">
 
+
+    <TextView
+        android:id="@+id/matches_intro"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Your matches. Select one to start a discussion. "
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ListView
+        android:id="@+id/matches_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:layout_constraintTop_toBottomOf="@id/matches_intro"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
