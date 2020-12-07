@@ -38,7 +38,7 @@ class MatchesActivity : AppCompatActivity() {
                     for (topic in user.child("Topics").children) {
                         if (user.child("UID").toString() == currentUser.uid) {
                             topicDict[topic.toString()] = topic.value.toString()
-                        } else if (topic.value.toString() == topicDict[topic.toString()]) {
+                        } else if (topic.value.toString() != topicDict[topic.toString()] && topic.value.toString() != "UNDECIDED") {
                             addMatch(user.child("UID").toString(), matchListView, mAdapter)
                         }
                     }

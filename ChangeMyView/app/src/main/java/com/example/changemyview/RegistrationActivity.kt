@@ -67,7 +67,7 @@ class RegistrationActivity : AppCompatActivity() {
                     val user = User(currentUser.uid, currentUser.email)
 
                     for (topic in TOPIC_LIST)
-                        mDatabaseReference!!.child(currentUser.uid).child("Topics").child(topic).setValue("U")
+                        mDatabaseReference!!.child(currentUser.uid).child("Topics").child(topic).setValue("UNDECIDED")
 
 
                     val intent = Intent(this@RegistrationActivity, MainActivity::class.java)
