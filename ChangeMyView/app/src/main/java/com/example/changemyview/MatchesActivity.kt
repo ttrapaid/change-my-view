@@ -13,9 +13,11 @@ class MatchesActivity : AppCompatActivity() {
     private var mAuth: FirebaseAuth? = null
     var matches: ArrayList<String> = ArrayList()
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.matches)
+        setContentView(R.layout.activity_matches)
 
         val matchListView = findViewById<ListView>(R.id.matches_listview)
         val mAdapter = ArrayAdapter(this, R.layout.match, matches)
@@ -28,8 +30,9 @@ class MatchesActivity : AppCompatActivity() {
 
         matchListView.onItemClickListener = AdapterView.OnItemClickListener { _, view, _, _ ->
             val textView = view as TextView
-            val intent = Intent(this@MatchesActivity, ViewMatch::class.java)
-//            intent.putExtra("username", )
+            val intent = Intent(this@MatchesActivity, ViewMatchActivity::class.java)
+            intent.putExtra("username", textView.text.toString())
+            startActivity(intent)
         }
 
         mDatabase.addValueEventListener(object : ValueEventListener {
@@ -38,8 +41,8 @@ class MatchesActivity : AppCompatActivity() {
                     for (topic in user.child("Topics").children) {
                         if (user.child("UID").toString() == currentUser.uid) {
                             topicDict[topic.toString()] = topic.value.toString()
-                        } else if (topic.value.toString() != topicDict[topic.toString()] && topic.value.toString() != "UNDECIDED") {
-                            addMatch(user.child("UID").toString(), matchListView, mAdapter)
+                        } else if (topic.value.toString() != topicDict[topic.toString()]) {
+                            addMatch(user.child("UID").child("email").toString(), matchListView, mAdapter)
                         }
                     }
                 }
@@ -51,8 +54,8 @@ class MatchesActivity : AppCompatActivity() {
         })
     }
 
-    private fun addMatch( userID: String, matchListView: ListView, mAdapter: ArrayAdapter<String>) {
-        matches.add(userID)
+    private fun addMatch(email: String, matchListView: ListView, mAdapter: ArrayAdapter<String>) {
+        matches.add(email)
         mAdapter.notifyDataSetChanged()
         matchListView.adapter = mAdapter
     }
