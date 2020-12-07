@@ -6,33 +6,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="412dp"
-        android:layout_height="79dp"
-        android:gravity="center_horizontal"
+        android:id="@+id/menuText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:text="@string/mainTitle"
+        android:gravity="center"
+        android:textSize="30sp"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
-        app:layout_constraintBottom_toTopOf="@+id/matchButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/topicSelect"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".10" />
 
-    <Button
-        android:id="@+id/matchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/matchSelect"
         android:text="@string/buttonMatches"
-        app:layout_constraintEnd_toStartOf="@+id/topicButton"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="331dp" />
+        android:gravity="center"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textSize="50sp"
+        android:background="@color/blue"
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/topicSelect"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menuText"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".5" />
 
-    <Button
-        android:id="@+id/topicButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="96dp"
+    <TextView
+        android:id="@+id/topicSelect"
         android:text="@string/buttonTopics"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="331dp" />
+        android:gravity="center"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textSize="50sp"
+        android:background="@android:color/holo_red_light"
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/matchSelect"
+        app:layout_constraintTop_toBottomOf="@id/menuText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

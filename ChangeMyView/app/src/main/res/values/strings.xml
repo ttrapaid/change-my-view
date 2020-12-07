@@ -5,6 +5,7 @@
     <string name="buttonMatches">Matches</string>
     <string name="positionFor">For</string>
     <string name="positionAgainst">Against</string>
+    <string name="report_user">Report User</string>
 
     <string-array name="topics_list">
         <item>Anti vaxxers being forced to vaccinate their kids</item>
@@ -17,5 +18,11 @@
         <item>Minimum drinking age of 18</item>
         <item>Every Citizen should get a free pony</item>
     </string-array>
+    <string name="title_activity_report_user">ReportUserActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 
 </resources>
