@@ -7,15 +7,32 @@
     tools:context=".TopicPositionActivity">
 
     <TextView
-        android:id="@+id/position_title"
+        android:id="@+id/position_intro"
+        android:text='@string/position_intro'
+        android:gravity="center"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textSize="15sp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/position_title"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".05" />
+    <TextView
+        android:id="@+id/position_title"
+        android:gravity="center"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textSize="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/position_intro"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@id/position_against"
         app:layout_constraintHeight_default="percent"
-        app:layout_constraintHeight_percent=".25" />
+        app:layout_constraintHeight_percent=".15" />
 
     <TextView
         android:id="@+id/position_for"

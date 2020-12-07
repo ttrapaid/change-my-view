@@ -6,6 +6,10 @@
     <string name="positionFor">For</string>
     <string name="positionAgainst">Against</string>
     <string name="report_user">Report User</string>
+    <string name="position_intro">Please indicate your position on the following topic:</string>
+    <string name="topic_intro">Tap a topic to select or change your position:</string>
+    <string name="topic_to_menu">Return to main menu</string>
+    <string name="topic_to_matches">Go to matches</string>
 
     <string-array name="topics_list">
         <item>Anti vaxxers being forced to vaccinate their kids</item>

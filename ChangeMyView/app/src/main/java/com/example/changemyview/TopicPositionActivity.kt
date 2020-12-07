@@ -12,20 +12,34 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class TopicPositionActivity : AppCompatActivity() {
+
+    private var mDatabaseReference: DatabaseReference? = null
+    private var mDatabase: FirebaseDatabase? = null
+    private var mAuth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_topicposition)
 
+        mDatabase = FirebaseDatabase.getInstance()
+        mDatabaseReference = mDatabase!!.reference.child("Users")
+        mAuth = FirebaseAuth.getInstance()
+
         //Set the Topic title up
         val intent = getIntent()
         val extras = intent.extras
         var title = "Default Topic Title"
+        //var userID: String
         if (extras != null){
             title = extras[TopicsActivity.TITLE] as String
+            //userID = extras[MainActivity.USER_ID] as String
         }
+        
         val titleView = findViewById<TextView>(R.id.position_title)
         titleView.text = title
 
@@ -38,6 +52,8 @@ class TopicPositionActivity : AppCompatActivity() {
                     "You indicated you are FOR this topic",
                     Toast.LENGTH_LONG
                 ).show()
+                //TODO - update database to reflect that this user is for this topic
+                //database.reference.child("Users").child(currentUser.UID).child("Topics").child(topicName).setValue(stance)
                 finish()
             }
         )
@@ -50,6 +66,7 @@ class TopicPositionActivity : AppCompatActivity() {
                     "You indicated you are AGAINST this topic",
                     Toast.LENGTH_LONG
                 ).show()
+                //TODO - update database to reflect this user is against this topic
                 finish()
             }
         )

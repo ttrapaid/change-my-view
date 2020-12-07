@@ -3,6 +3,7 @@ package com.example.changemyview
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.*
 import androidx.fragment.app.FragmentActivity
 import android.widget.AdapterView.OnItemClickListener
@@ -19,6 +20,7 @@ class TopicsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_topics)
 
+        // set up ListView
         val listView = findViewById<ListView>(R.id.topics_listview)
 
         listView.adapter = ArrayAdapter(
@@ -37,6 +39,19 @@ class TopicsActivity : AppCompatActivity() {
                 this@TopicsActivity, TopicPositionActivity::class.java)
 
             intent.putExtra(TITLE, view.text.toString())
+            startActivity(intent)
+        }
+
+        //set up navigation buttons
+        val menuButton = findViewById<Button>(R.id.topic_to_menu)
+        menuButton.setOnClickListener {
+            val intent = Intent(this@TopicsActivity, DashboardActivity::class.java)
+            startActivity(intent)
+        }
+
+        val matchesButton = findViewById<Button>(R.id.topic_to_matches)
+        matchesButton.setOnClickListener {
+            val intent = Intent(this@TopicsActivity, MatchesActivity::class.java)
             startActivity(intent)
         }
 
