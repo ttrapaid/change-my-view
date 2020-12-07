@@ -16,9 +16,11 @@ class ViewMatchActivity : AppCompatActivity() {
 
 
         val email = intent.extras?.get("email")
+        val topic = intent.extras?.get("topics")
         val matchTV = findViewById<TextView>(R.id.match_text)
+        val topicTV = findViewById<TextView>(R.id.topic_list)
         matchTV.text = "You matched with ${email.toString()}!"
-
+        topicTV.text = "Your controversial topics include: ${topic.toString()}"
         val button = findViewById<Button>(R.id.start)
 
         button.setOnClickListener {
