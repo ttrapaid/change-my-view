@@ -1,43 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewMatchActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ViewMatchActivity">
 
-    <TextView
-        android:id="@+id/match_text"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="match email goes here"
-        android:layout_marginTop="200dp"
-        app:layout_constraintBottom_toTopOf="@id/topic_list"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/match_text"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="match email goes here"
+            android:layout_marginTop="200dp"
+            app:layout_constraintBottom_toTopOf="@id/topic_list"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/topic_list"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Your topics include:"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toTopOf="@id/start"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/match_text" />
+        <TextView
+            android:id="@+id/topic_list"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Your topics include:"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toTopOf="@id/start"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/match_text" />
 
-    <Button
-        android:id="@+id/start"
-        android:layout_height="wrap_content"
-        android:text="Start a Conversation!"
-        android:layout_width="300dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topic_list"
-        />
+        <Button
+            android:id="@+id/start"
+            android:layout_height="wrap_content"
+            android:text="Start a Conversation!"
+            android:layout_width="300dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topic_list"
+            />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
