@@ -34,5 +34,15 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
+    <string name="match_intro">Your matches. Select one to start a discussion.</string>
+    <string name="match_email_text">match email goes here</string>
+    <string name="topic_list_text">Your topics include:</string>
+    <string name="conversation_button_text">Start a Conversation!</string>
+    <string name="register_new_user_text">Register New User</string>
+    <string name="new_username_text">Enter New Username</string>
+    <string name="password_text">Enter Your Password</string>
+    <string name="confirm_password_text">Confirm Password</string>
+    <string name="email_text">Enter Your Email</string>
+    <string name="register_text">Register</string>
 
 </resources>

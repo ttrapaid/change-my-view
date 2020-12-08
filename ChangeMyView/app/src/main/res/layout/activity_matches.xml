@@ -11,7 +11,7 @@
         android:id="@+id/matches_intro"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Your matches. Select one to start a discussion. "
+        android:text="@string/match_intro"
         android:layout_marginTop="50dp"
         android:gravity="center"
         app:layout_constraintLeft_toLeftOf="parent"
