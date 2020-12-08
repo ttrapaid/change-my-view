@@ -6,11 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".MainActivity">
 
 
@@ -18,7 +15,7 @@
             android:id="@+id/welcome"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="Welcome, please log in or register a new account"
+            android:text="@string/welcome_text"
             android:layout_marginTop="50dp"
             app:layout_constraintBottom_toTopOf="@id/username"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -29,7 +26,7 @@
             android:id="@+id/username"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="@string/username_text"
             android:layout_marginTop="20dp"
             app:layout_constraintBottom_toTopOf="@id/password"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -40,7 +37,7 @@
             android:id="@+id/password"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/password_text_short"
             android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@id/username"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -50,7 +47,7 @@
         <Button
             android:id="@+id/login"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="@string/login_text"
             android:layout_width="300dp"
             android:layout_marginTop="10dp"
             app:layout_constraintBottom_toTopOf="@id/register"
@@ -61,7 +58,7 @@
         <Button
             android:id="@+id/register"
             android:layout_height="wrap_content"
-            android:text="Register"
+            android:text="@string/register_text"
             android:layout_width="300dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

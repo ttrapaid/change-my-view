@@ -3,8 +3,6 @@ package com.example.changemyview
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.renderscript.Sampler
-import android.util.Log
 import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -13,7 +11,7 @@ class MatchesActivity : AppCompatActivity() {
 
     private lateinit var mDatabase: DatabaseReference
     private var mAuth: FirebaseAuth? = null
-    var matches: ArrayList<String> = ArrayList()
+    private var matches: ArrayList<String> = ArrayList()
 
 
 
@@ -21,7 +19,7 @@ class MatchesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_matches)
 
-        val matchListView = findViewById<ListView>(R.id.matches_listview)
+        val matchListView = findViewById<ListView>(R.id.matches_listView)
         val mAdapter = ArrayAdapter(this, R.layout.match, matches)
         val topics = HashMap<String, ArrayList<String>>()
 
@@ -75,7 +73,7 @@ class MatchesActivity : AppCompatActivity() {
                         // curr-user curr-topic stance != logged-in user curr-topic stance
                         if (user.key.toString() != currentUser.uid && topic.key.toString() in topicDict.keys && topic.value.toString() != topicDict[topic.key.toString()]) {
                             if (topics[user.child("email").value.toString()] == null) {
-                                topics[user.child("email").value.toString()] = ArrayList<String>()
+                                topics[user.child("email").value.toString()] = ArrayList()
                             }
 
                             // stores matched topic (the logged in user and curr user in the loop)
@@ -110,6 +108,5 @@ class MatchesActivity : AppCompatActivity() {
 
     companion object {
         val TOPIC_LIST = listOf("Legalize Marijuana", "Mandatory Vaccinations", "Lower the Drinking Age to 18", "Ponies4All", "Free Healthcare", "Euthanization", "Death Penalty")
-        val TAG = "ChangeMyView"
     }
 }

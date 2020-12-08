@@ -4,15 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
+// referenced Project 7
 class MainActivity : AppCompatActivity() {
 
     private var mDatabaseReference: DatabaseReference? = null
@@ -43,8 +42,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loginUserAccount() {
-//        progressBar?.visibility = View.VISIBLE
-
         val username: String = username?.text.toString()
         val password: String = password?.text.toString()
 
@@ -59,7 +56,6 @@ class MainActivity : AppCompatActivity() {
 
         mAuth!!.signInWithEmailAndPassword(username, password)
             .addOnCompleteListener { task ->
-//                progressBar?.visibility = View.GONE
                 if (task.isSuccessful) {
                     Toast.makeText(applicationContext, "Login successful!", Toast.LENGTH_LONG)
                         .show()
@@ -80,7 +76,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val USER_EMAIL = "com.example.tesla.myhomelibrary.useremail"
         const val USER_ID = "com.example.tesla.myhomelibrary.userid"
     }
 

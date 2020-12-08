@@ -29,7 +29,7 @@ class ViewMatchActivity : AppCompatActivity() {
         button.setOnClickListener {
             val emailIntent = Intent(Intent.ACTION_SEND)
 
-            emailIntent.setType("plain/text")
+            emailIntent.type = "plain/text"
 
             // put the email in the "to:" field
             emailIntent.putExtra(Intent.EXTRA_EMAIL, email.toString())
@@ -41,6 +41,15 @@ class ViewMatchActivity : AppCompatActivity() {
             // launch email intent
             startActivity(emailIntent)
         }
+
+        //set up navigation buttons
+        val menuButton = findViewById<Button>(R.id.match_to_menu)
+        menuButton.setOnClickListener {
+            val intent = Intent(this@ViewMatchActivity, DashboardActivity::class.java)
+            startActivity(intent)
+        }
+
+
 
     }
 

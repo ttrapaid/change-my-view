@@ -44,5 +44,15 @@
             app:layout_constraintTop_toBottomOf="@id/topic_list"
             />
 
+        <Button
+            android:id="@+id/match_to_menu"
+            android:text="@string/topic_to_menu"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/start"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_width="300dp"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

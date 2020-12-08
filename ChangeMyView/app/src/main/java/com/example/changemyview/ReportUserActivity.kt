@@ -21,8 +21,8 @@ class ReportUserActivity : AppCompatActivity() {
         val submitButton = findViewById<Button>(R.id.Submit)
         submitButton.setOnClickListener {
             // gather inputs from EditTexts
-            var name = emailText.text.toString().trim()
-            var reason = reasonText.text.toString().trim()
+            val name = emailText.text.toString().trim()
+            val reason = reasonText.text.toString().trim()
 
             // if the user didn't fill out an EditText, ask them to fill out fields
             if(name.isEmpty() or reason.isEmpty()) {
@@ -39,7 +39,7 @@ class ReportUserActivity : AppCompatActivity() {
                 val combinedReport = "$name: $reason"
 
                 // add to database and let user know when it is completed
-                db.child(id!!).setValue(combinedReport).addOnCompleteListener() {
+                db.child(id!!).setValue(combinedReport).addOnCompleteListener {
                     Toast.makeText(this, "Report Successfully Submitted", Toast.LENGTH_LONG).show()
                 }
 

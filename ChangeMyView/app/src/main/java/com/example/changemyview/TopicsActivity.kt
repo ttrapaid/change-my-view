@@ -3,20 +3,15 @@ package com.example.changemyview
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.*
-import androidx.fragment.app.FragmentActivity
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 
 class TopicsActivity : AppCompatActivity() {
 
@@ -34,11 +29,11 @@ class TopicsActivity : AppCompatActivity() {
 
         //get instances and references for the database
         mDatabase = FirebaseDatabase.getInstance()
-        mDatabaseReference = mDatabase!!.reference.child("Users")
+        mDatabaseReference = mDatabase.reference.child("Users")
         mAuth = FirebaseAuth.getInstance()
 
         // set up ListView
-        listView = findViewById<ListView>(R.id.topics_listview)
+        listView = findViewById(R.id.topics_listView)
 
         //get reference to adapter and attach it
         mArrayAdapter = ArrayAdapter(
@@ -79,8 +74,8 @@ class TopicsActivity : AppCompatActivity() {
 
 
     companion object {
-        val TAG = "ChangeMyView - Topics"
-        val TITLE = "title"
+        const val TAG = "ChangeMyView - Topics"
+        const val TITLE = "title"
     }
 
 }
